@@ -4,6 +4,10 @@
 # d=min({'race': 'first', 'age': 18, 'skill': ['Roar']}, key=len)
 # print(len(d),d)
 
-names=min(['Ann', 'Jane', 'Edward'])
-print(len(names), names)
+# names=['Robert', 'Ann', 'Jane', 'Edward']
+# min_name=min(names,key=len)
+# print(len(min_name), min_name)
+
+
+
 
