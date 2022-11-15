@@ -9,5 +9,6 @@
 # print(len(min_name), min_name)
 
 
-
+qwe=[0]
+print(qwe)
 
