@@ -25,9 +25,10 @@
 #     else:
 #         print([])
 
-# solution([1,2,5,8,99])
 
+# solution([1,2,5,8,99])
 # =============================================================
+
 # 2-задание: 
 # Cоздать класс, который описывает машину с атрибутами: модель, цвет, цена, страна, двигатель ...
 # и с методами: ускорение за секунду, расход топлива за прохожденный путь 
@@ -87,8 +88,6 @@ person.cooking("Uygur national dishes", "great cakes","salads, cuisine dishes")
 print("I like cooking. I can cook " + person.cuisine +", " + person.cakes + ", " +  person.other_dishes)
 
     
-
-
 
 
 
