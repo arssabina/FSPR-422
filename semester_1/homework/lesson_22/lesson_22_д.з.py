@@ -19,10 +19,10 @@
 # Sort numbers: Finish the solution so that it sorts the passed in array of numbers. 
 # If the function passes in an empty array or null/nil value then it should return an empty array.
 
-def solution(nums):
-    if nums:
-        print(sorted(nums))
-    else:
-        print([])
+# def solution(nums):
+#     if nums:
+#         print(sorted(nums))
+#     else:
+#         print([])
 
-solution([1,2,5,8,99])
+# solution([1,2,5,8,99])
