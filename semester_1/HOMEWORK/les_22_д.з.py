@@ -68,12 +68,14 @@ print("\n""Пройденный путь: " + str(car.пройденный_пу�
 
 # 3-задание: Создать класс описывающий человека с методами которые описывают вас (что умеете) 
 class Person:
-    name="Sabina"
+    name="Sabina"  # аттрибут класса, создан до вызова класса
         
     def __init__(self, eyes, hair_color, height):
         self.eyes=eyes
         self.hair_color=hair_color
         self.height=height
+ # атрибут класса = аргумент класса
+ 
 
     def cooking(self,cuisine, cakes, other_dishes):
         self.cuisine=cuisine
