@@ -1,3 +1,8 @@
+# Overloading- перезаписывание логики встроенного метода на другую 
+# создать какой-то другой фукнционал, который заменяет существующий функционал
+
+# @classmethod 
+
 class PlayerCharacter: 
     membership = True
     def __init__(self, hobby, name='anonymous', age=0):
@@ -28,7 +33,10 @@ class PlayerCharacter:
     # def multiply (a, b):  не пишем self, потому что метод static не имеет ссылку на класс
     #     return a * b
 
+
+# player_1 - это объект, кот. имеет доступ ко всем аттрибутам и методам класса. 
 player_1=PlayerCharacter("hiking","Jerry", 20)
+
 print(player_1.shout())
 # print(player_1._welcome())  # так делать нельзя, так писать код, потому что это приватный метод
 # print(player_1.name, player_1.age)
