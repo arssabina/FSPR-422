@@ -65,36 +65,36 @@ print("Find triangle_area with a, b, c (Heron's formula):", mat_methods.triangle
 # методами attack, heal, level_up от которого наследуются 3 класса Archer, Paladin, Wizard. На свою фантазию можете
 # расширить функциональность 
 
-class GameCharacter:
+# class GameCharacter:
     
-    def __init__(self,health, mana, damage, type, skill):
-        self.health=health
-        self.mana=mana
-        self.damage=damage
-        self.type=type
-        self.skill="flying", "learning magical creatures", "Potions"
+#     def __init__(self,health, mana, damage, type, skill):
+#         self.health=health
+#         self.mana=mana
+#         self.damage=damage
+#         self.type=type
+#         self.skill="flying", "learning magical creatures", "Potions"
     
-    def attack(self):
+#     def attack(self):
 
-    def heal():
+#     def heal():
 
-    def level_up():
+#     def level_up():
 
-class Archer(GameCharacter):
-    pass
+# class Archer(GameCharacter):
+#     pass
 
-class Paladin(GameCharacter):
-    pass
+# class Paladin(GameCharacter):
+#     pass
 
-class Wizard(GameCharacter):
-    pass 
+# class Wizard(GameCharacter):
+#     pass 
 
-game_character=GameCharacter()
+# game_character=GameCharacter()
 
-print(archer.)
+# print(archer.)
 
-paladin=Paladin()
-print(paladin.)
+# paladin=Paladin()
+# print(paladin.)
 
-wizard=Wizard()
-print(wizard.)
+# wizard=Wizard()
+# print(wizard.)
