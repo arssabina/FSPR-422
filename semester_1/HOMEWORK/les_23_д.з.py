@@ -1,16 +1,24 @@
-# 7 kyu Square Every Digit  https://www.codewars.com/kata/546e2562b03326a88e000020/train/python
-# Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
-# For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
-# Note: The function accepts an integer and returns an integer
+# https://www.codewars.com/kata/5641275f07335295f10000d0
+# split the bill
 
-def square_digits(num):
-    num_1=list(str(num))
-    # print(num_1)
-    result = []
-    for i in num_1: 
-        num_square=(int(i)**2)
-        result.append(num_square)
-    print(''.join(result))
+# def split_the_bill(x):
+
+# class Student:
+
+#     def __init__(self, first_name, last_name, grades=[]):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.grades = grades
     
+#     def add_grade(self, grade):
+#         self.grades.append(grade)
+    
+#     def get_average(self):
+#         return sum(self.grades) / len(self.grades)
 
-square_digits(9119)
+def split_the_bill(x):
+    {'A': 20, 'B': 15, 'C': 10}
+
+
+
+# ({'A': 20, 'B': 15, 'C': 10}), {'A': 5, 'B': 0, 'C': -5}) 
