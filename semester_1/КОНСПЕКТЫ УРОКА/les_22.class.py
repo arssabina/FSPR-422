@@ -1,18 +1,18 @@
-# class Marker:
-#     size=15 # статичная переменная,  которая определяется до вызова
-#     health=10
-#     # функции - методы
-#     # переменные - аттрибуты
-#     def __init__(self,company,color, price):
-#         self.company = company
-#         self.color = color   
-#         self.price=price
+class Marker:
+    size=15 # статичная переменная,  которая определяется до вызова
+    health=10
+    # функции - методы
+    # переменные - аттрибуты
+    def __init__(self,company,color, price):
+        self.company = company
+        self.color = color   
+        self.price=price
 
-#         # метод класса
-#     def draw(self, line_length):
-#         if self.health <=0:
-#             return "Маркер истощён" 
-#         self.health-=line_length
+        # метод класса
+    def draw(self, line_length):
+        if self.health <=0:
+            return "Маркер истощён" 
+        self.health-=line_length
 
 
 # # динамичные аттрибуты, которые опред-ся после вызова функции 

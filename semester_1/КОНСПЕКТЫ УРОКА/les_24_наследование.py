@@ -74,10 +74,8 @@ print(child.cooked_food)
 # Создать метод который создает атрибут date_of_birth используя модуль datetime
 
 
-import datetime 
+# import datetime 
 
-
-
-date_of_birth = datetime.datetime(1986, 2, 12)                  #Задание даты
-print("My date of birth:", date_of_birth)                                           #Вывод даты на экран
+# date_of_birth = datetime.datetime(1986, 2, 12)                  #Задание даты
+# print("My date of birth:", date_of_birth)                                           #Вывод даты на экран
 
