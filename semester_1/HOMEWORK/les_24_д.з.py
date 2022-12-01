@@ -60,41 +60,77 @@ print("Find triangle_area with base and height:", mat_methods.triangle_area_1(5,
 print("Find triangle_area with a, b and angle:", mat_methods.triangle_area_2(4,5,30))
 print("Find triangle_area with a, b, c (Heron's formula):", mat_methods.triangle_area_3(3,4,5))
 
-# ============================================================================================================
+# # ============================================================================================================
 # 2-задание: Создать класс, который описывает игрового персонажа с атрибутами (health, mana, damage, type, skill) и 
 # методами attack, heal, level_up от которого наследуются 3 класса Archer, Paladin, Wizard. На свою фантазию можете
 # расширить функциональность 
+# 
+class GameCharacter:
+    experience = 0
+    lvl=1
 
-# class GameCharacter:
+    def __init__(self,health, mana, damage, type, skills):
+        self.health=health
+        self.mana=mana
+        self.damage=damage
+        self.type=type
+        self.skills=skills  # навыки будут выводиться в списке
     
-#     def __init__(self,health, mana, damage, type, skill):
-#         self.health=health
-#         self.mana=mana
-#         self.damage=damage
-#         self.type=type
-#         self.skill="flying", "learning magical creatures", "Potions"
+    def attack(self, enemy_health):
+        return enemy_health-self.damage
+
+
+    def heal(self):
+        if "heal" in self.skills:
+            self.health +=10
     
-#     def attack(self):
+    def kill_enemy(self, enemy_lvl):
+        if enemy_lvl==1:
+            self.experience +=5
+            self.level_up()
+            print(f"You lkeveled up. Your current level is {self.lvl}")
 
-#     def heal():
+    def level_up(self):
+        """максимальный уровень - 5 """
+        if  10 <= self.experience <=20:
+            self.lvl +=1
+        elif 21 <= self.experience <=30:
+            self.lvl +=1
+        elif 31 <= self.experience <=40:
+            self.lvl +=1
+        elif 41 <= self.experience <=50:
+            self.lvl +=1
+        elif 51 <= self.experience:
+            self.lvl +=1
 
-#     def level_up():
+class Archer(GameCharacter):
+    pass
 
-# class Archer(GameCharacter):
-#     pass
+class Paladin(GameCharacter):
+    pass
 
-# class Paladin(GameCharacter):
-#     pass
+class Wizard(GameCharacter):
+    pass 
 
-# class Wizard(GameCharacter):
-#     pass 
 
-# game_character=GameCharacter()
+player_1=GameCharacter(15,50,15,"base", ["heal"])
+player_2=GameCharacter(15,50,15,"base", ["heal"])
 
-# print(archer.)
 
-# paladin=Paladin()
-# print(paladin.)
+# Второй игрок теряет жизнь
+print(player_2.health)
+player_2.health=player_2.health-player_1.attack()
+print(player_2.health)
 
-# wizard=Wizard()
-# print(wizard.)
+
+# Первый игрок теряет жизнь
+print(player_1.health)
+player_1.health=player_1.health-player_2.attack()
+print("Player_1 health:", player_1.health)
+
+player_1.heal()
+player_2.heal()
+print(player_1.health)
+print(player_2.health)
+
+
