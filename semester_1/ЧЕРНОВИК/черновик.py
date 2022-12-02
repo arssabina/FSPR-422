@@ -1,13 +1,22 @@
-class Ship:
-    def __init__(self, draft, crew):
-        self.draft = draft
-        self.crew = crew
+class Store:
+    new_user_info={}
+    passwords=[]
+ 
+    def __init__(self, name, email, password, code_of_card): 
+        self.name=name
+        self.email=email
+        self.password=password
+        self.code_of_card=code_of_card
 
-    def is_worth_it(self):
-        if self.draft - self.crew * 1.5 >=20:
-            return True
+    def __repr__(self):
+        if self.name.isalpha() == True and "@" in self.email and len(self.password) == 6 and len(self.code_of_card) ==1:
+            self.new_user_info={'name': self.name, 'e-mail' : self.email, 'password' : self.password,
+            'code_of_card': self.code_of_card}
+            print(self.new_user_info)
+            return f"Registration is successful"
         else: 
-            return False
-
-ship=Ship(5,10)
-print(ship.is_worth_it())
+            return f"Incorrect information"
+   
+       
+user=Store(input("Enter your name:"), input ("e-mail:"), input("password:"), input("code_of_card:"))
+print(user)
