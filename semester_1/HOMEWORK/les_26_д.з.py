@@ -38,7 +38,7 @@ class Store:
 
     def __repr__(self):
         """Проверка данных нового пользователя"""
-        if self.name.isalpha() == True and "@" in self.email and len(self.password) == 6 and len(self.code_of_card) ==1:
+        if self.name.isalpha() == True and "@" in self.email and len(self.password) == 6 and len(self.code_of_card) ==16:
             self.USERS={"user's name": self.name, 'e-mail' : self.email, 'password' : self.password, 'code_of_card': self.code_of_card}
             print(self.USERS)
             return f"Registration is successful"
@@ -57,15 +57,18 @@ class Store:
             print("You are not registered. Please register on the site!")
     
     def purchase(self, wish_product, enough_money):
-        """Покупка товара"""
         self.wish_product=wish_product
         self.enough_money=enough_money  
-        if self.wish_product in self.products.keys() and int(self.enough_money) >= 50:
+
+        """Покупка товара и списание средств со счету"""
+        if self.wish_product in self.products.keys() and int(self.enough_money) >= int(self.products[self.wish_product]):
             self.account_balance=int(self.enough_money) - int(self.products[self.wish_product])            
             self.purchases.append(self.wish_product)
             print("Successful purchase!\nPurchased_product:", self.wish_product, ",", "price:", 
                       self.products[self.wish_product], ",", "your current account_balance:", self.account_balance)
-        if int(self.enough_money) < 50:
+        
+        """Недостаточно средств на счету"""
+        if int(self.enough_money) < int(self.products[self.wish_product]):
             print("Sorry, you don't have enough money")
 
         if self.wish_product not in self.products.keys():
