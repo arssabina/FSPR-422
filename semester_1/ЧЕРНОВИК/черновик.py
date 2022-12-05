@@ -78,7 +78,6 @@ class Store:
                   
 store_user=Store(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),
            input("code_of_card:"))
-
 print(store_user)
 reg_user=store_user.login_user(input("For signing in enter your login:")) 
 puchase=store_user.purchase(input("What do you want to buy?"), input("How much money do you have?"))
