@@ -33,16 +33,18 @@ USERS=[
     }
 ]
 
+PRODUCTS = {'pencils': 100, 'bag': 300, 'book': 50, 'vitamins': 150}
 
 class Store:
     purchases = []
 
-    def __init__(self, name, email, password, card_code, card_balance): 
+    def __init__(self, name, email, password, card_code, card_balance, wanted_product): 
         self.name=name
         self.email=email
         self.password=password
         self.card_code=card_code
         self.card_balance=card_balance
+        self.wanted_product=wanted_product
 
     @classmethod
     def register(cls, name, email, password, card_code, card_balance):
@@ -70,7 +72,7 @@ class Store:
             )
             # return Store (name, email, password, card_code, card_balance) 
             return cls(name, email, password, card_code, card_balance) # в этой строке создаём экземпляр класса, 
-            # в этой стркое вызываем класс, возвращаем экземпляр класса. 
+            # в этой строке вызываем класс, возвращаем экземпляр класса. 
         else: 
             return "Wrong credentials"
        
@@ -81,7 +83,7 @@ class Store:
                 return (cls, email, password)  # в этой строке создаём экземпляр класса
             else: 
                 return "You are not registered. Please register on the site!"
-
+    
 enter_method= input("Choose method, register or login:")
 if enter_method == "register":
     user_1 = Store.register(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),

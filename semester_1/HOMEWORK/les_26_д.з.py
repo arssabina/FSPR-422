@@ -73,7 +73,7 @@ class Store:
 
         if self.wish_product not in self.products.keys():
             print("Sorry, we don't have this product")
-    
+     
                   
 store_user=Store(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),
            input("code_of_card:"))
