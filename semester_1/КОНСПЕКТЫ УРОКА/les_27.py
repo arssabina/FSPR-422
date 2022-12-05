@@ -90,7 +90,3 @@ elif enter_method == "login":
     user_1 = Store.login(input("For signing in enter your email:"), input("Enter your password:"))
 print(user_1)
 # print(USERS)
-
-
-# ("sabina", "sabina@gmail.com", "s123456", "1234567891234567", 1000)
-# ("sabina@gmail.com", "s123456")
