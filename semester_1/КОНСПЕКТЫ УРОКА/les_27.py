@@ -28,12 +28,16 @@ USERS=[
         'email': 'sa@',
         'password': '123456',
         'purchases': [],
-        'card_code': '1234567891234567',
-        'card_balance': 1000
+        'card': {'code': '1234567891234567', 'balance': 1000}
     }
 ]
 
-PRODUCTS = {'pencils': 100, 'bag': 300, 'book': 50, 'vitamins': 150}
+PRODUCTS = {
+    'pencils': 100, 
+    'bag': 300, 
+    'book': 50, 
+    'vitamins': 150
+}
 
 class Store:
     purchases = []
@@ -50,7 +54,7 @@ class Store:
         if not (email and password):
             return "Empty values were given"
         for user in USERS:
-            if user ["email"] == email and user ["password"] == password:
+            if user ['email'] == email and user ['password'] == password:
                 return (cls, user ['name'], email, password, user ['card']['code'], user ['card']['balance'])
                 # в этой строке создаём экземпляр класса
         return "Wrong email or password"
@@ -58,9 +62,7 @@ class Store:
     @classmethod
     def register(cls, name, email, password, card_code, card_balance):
         """Регистрация и создание пользования.
-
-        Полное описание на 120 и более символов.
-
+        Полное описание из 120 и более символов.
         Args: 
             name(str): Имя пользователя
             email (str): email пользователя
@@ -73,12 +75,12 @@ class Store:
         """
         # Есть ли данный пользователь в системе
         for user in USERS:  
-            if user ["email"] == email or user ["password"] == password:
+            if user ['email'] == email or user ['password'] == password:
                 return "Пользователь с такими данными уже есть"
 
         if not(name and email and password and card_code and card_balance):
             return "Empty values were given"
-        if name.isalpha() and '@' in email and len(password) >=6 and len(card_code) == 16 and card_balance >=0:
+        if name.isalpha() and '@' in email and len(password) >=6 and len(card_code) == 16 and int(card_balance) >=0:
             USERS.append(
                 {
                 'name': name,
@@ -88,20 +90,20 @@ class Store:
                 'card': {'code': card_code, 'balance': card_balance}
                 }
             )
-            # return Store (name, email, password, card_code, card_balance) 
-            return cls(name, email, password, card_code, card_balance) # в этой строке создаём экземпляр класса, 
+               # return Store (name, email, password, card_code, card_balance) 
+            return cls(name, email, password, card_code, card_balance) 
             # в этой строке вызываем класс, возвращаем экземпляр класса. 
         else: 
             return "Wrong credentials"
-
+    
     def purchase(self, product):
         if product not in PRODUCTS.keys():
             return "Not available" 
-        if self.card_balance <=0:
+        if int(self.card_balance) <=0:
             return "Not enough money!"
 
         for key, val in PRODUCTS.items():
-            if key == product and self.card_balance - val >= 0: 
+            if key == product and int(self.card_balance - val) >= 0: 
                 self.card_balance -= val
                 self.purchases.append(product)
                 for id, user in enumerate(USERS): 
@@ -112,11 +114,24 @@ class Store:
             else: 
                 return "Not enough money."
                        
-enter_method= input("Choose method, register or login:")
-if enter_method == "register":
-    user_1 = Store.register(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),
-           input("code_of_card:"), input("balance of your card"))
-elif enter_method == "login":
-    user_1 = Store.login(input("For signing in enter your email:"), input("Enter your password:"))
-print(user_1)
-# print(USERS)
+enter= input("Choose method, register or login:")
+if enter == "register":
+    user = Store.register(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),
+           input("code_of_card:"), input("balance of your card:"))
+
+    if isinstance(user, Store):
+        print(user.purchase(input("What product do you want to buy?")))
+
+elif enter == "login":
+    user = Store.login(input("For signing in enter your email:"), input("Enter your password:"))
+    if isinstance(user, Store):
+        print(user.purchase(input("What product do you want to buy?")))
+
+# wish_product=Store.purchase(input("What product do you want to buy?"))
+# 
+# print(wish_product)
+# for user in USERS: 
+#     print(user)
+print("User's list:", USERS)
+print(user)
+# print(PRODUCTS)
