@@ -1,17 +1,19 @@
 # https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/python
+# Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных.
+# Реализуйте функцию, определяющую, является ли строка, содержащая только буквы, изограммой
 # isIsogram "Dermatoglyphics" = true
 # isIsogram "moose" = false
 # isIsogram "aba" = false 
 
 # def is_isogram(s):
-#     isogram_s=set(s.lower())
-#     if len(isogram_s)==len(s):
+#     set_s=set(s.lower())     # {'e', 'o', 'h', 'l'}
+#     if len(set_s)==len(s):   # 4 не равно 5   {'e', 'o', 'h', 'l'} не равно "Hello"
 #        print (True)
 #     else: 
 #         print(False)
-
+    
 # is_isogram("Hello")
-
+               
 # =======================================================================
 # https://www.codewars.com/kata/563cf89eb4747c5fb100001b/train/python
 # Input: [1,2,3,4,5], output = [2,3,4,5]

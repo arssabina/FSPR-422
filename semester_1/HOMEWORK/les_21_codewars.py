@@ -31,21 +31,21 @@ fizzbuzz(10)
 
 
 # ==========================================================================
-    # Highest and Lowest      https://www.codewars.com/kata/554b4ac871d6813a03000035/train/python
+# Highest and Lowest      https://www.codewars.com/kata/554b4ac871d6813a03000035/train/python
 # you are given a string of space separated numbers, and have to return the highest and lowest number.
 
 def high_and_low(numbers):
-    numbers=numbers.split(" ")
-    numbers=sorted(numbers,key=int)
-    print(numbers[-1] + "  " + numbers[0])
-
+    numbers=numbers.split(" ")   # ['8', '3', '-5', '42', '-1', '0', '0', '-9', '4', '7', '4', '-4']
+    numbers=sorted(numbers,key=int)   # ['-9', '-5', '-4', '-1', '0', '0', '3', '4', '4', '7', '8', '42']
+    print(numbers[-1] + "  " + numbers[0])  # 42  -9
+    
 high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4")
 
 
 # ====================================================================================
-def largest(n,xs):     # n = кол-во наибольш.чисел, кот.выводится в ответ,   xs = список с числами [2,4,58,99,78]
-    xs.sort()
-    print(xs[-n:])
+# def largest(n,xs):     # n = кол-во наибольш.чисел, кот.выводится в ответ,   xs = список с числами [2,4,58,99,78]
+#     xs.sort()  # Output -> [1, 2, 3, 4, 5, 6, 7]
+#     print(xs[-n:])   # Output ->  [6, 7] 
 
-largest(5,[2,4,58,99,78])
+# largest(2, [7,6,5,4,3,2,1])
     

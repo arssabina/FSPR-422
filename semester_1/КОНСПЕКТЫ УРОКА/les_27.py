@@ -103,35 +103,29 @@ class Store:
             return "Not enough money!"
 
         for key, val in PRODUCTS.items():
-            if key == product and int(self.card_balance - val) >= 0: 
-                self.card_balance -= val
+            if key == product and int(self.card_balance) - val >= 0: 
+                self.card_balance = int (self.card_balance) - val
                 self.purchases.append(product)
                 for id, user in enumerate(USERS): 
                     if user ['email'] == self.email: 
                         USERS [id]['purchases'].append(product)
                 PRODUCTS.pop(key)
                 return f'\nSuccessfully bought {product} and added into purchases!\nBalance: {self.card_balance}\nYour purchases: {self.purchases}'  
-            else: 
-                return "Not enough money."
+                
+        return f"{self.name} | {self.card_balance}: Not enough money."
                        
 enter= input("Choose method, register or login:")
-if enter == "register":
+if enter == "login":
+    user = Store.login(input("For signing in enter your email:"), input("Enter your password:"))
+    print(user.purchase(input("What product do you want to buy?")))
+    
+elif enter == "register":
     user = Store.register(input("For the registration, please, enter your name:"), input ("e-mail:"), input("password:"),
            input("code_of_card:"), input("balance of your card:"))
-
-    if isinstance(user, Store):
-        print(user.purchase(input("What product do you want to buy?")))
-
-elif enter == "login":
-    user = Store.login(input("For signing in enter your email:"), input("Enter your password:"))
-    if isinstance(user, Store):
-        print(user.purchase(input("What product do you want to buy?")))
-
-# wish_product=Store.purchase(input("What product do you want to buy?"))
-# 
-# print(wish_product)
-# for user in USERS: 
-#     print(user)
-print("User's list:", USERS)
-print(user)
-# print(PRODUCTS)
+    print(user.purchase(input("What product do you want to buy?")))
+    # else: 
+    #     print("Wrong email or password")
+for user in USERS: 
+    print(user)
+# print("User's list:", USERS)
+print(PRODUCTS)
