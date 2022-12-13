@@ -20,11 +20,11 @@ for key in user:
 
 print("dict vals")
 for val in user.values():
-print(val)
+    print(val)
 
 print("\ndict items")
 for key,val in user.items():
-print("key=", key, "val=", val)
+    print("key=", key, "val=", val)
 
 # 
 # [('name', )]

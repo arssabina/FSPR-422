@@ -15,13 +15,13 @@
 # # =======================================
 
 
-def greet(name): # name - это аргумент функции
-    print(f"Hello {name}")
+# def greet(name): # name - это аргумент функции
+#     print(f"Hello {name}")
 
 # greet ("Behruz")
 # s= "Bekzod"
 # greet (s) # "Bekzod"
-greet(input("Input name:"))
+# greet(input("Input name:"))
 
 # def greet(name):
 #     return f"Hello {name}"

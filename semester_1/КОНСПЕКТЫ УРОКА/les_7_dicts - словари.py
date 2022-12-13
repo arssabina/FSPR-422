@@ -41,7 +41,7 @@ print(user_data["age"])
 
 user_data["username"] = "Alabasta"
 print(user_data.keys(), user_data.values(), user_data.items(), sep="\n")
-
+# для вывода ключей              значений    ключа-значения
 
 # dict_keys(['username', 'password', 'age'])
 # dict_values(['Alabasta', '546546hd', 22])

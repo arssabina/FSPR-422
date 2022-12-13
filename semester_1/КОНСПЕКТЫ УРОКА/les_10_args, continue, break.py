@@ -1,7 +1,12 @@
-
-
 # a,b,*args=(2,4,4,7,8,9,10)
 # print(a,b,args)   # 2 4 [4, 7, 8, 9, 10]
+
+*a,b,c=[2,3]   #  a  b  c
+print(a,b,c)   # []  2  3
+
+
+a, *b, c = [True, 7, "Hello", 9, 54]   #  a      b                  c
+print(a,b,c)                           # True  [7, 'Hello', 9]     54
 
 # for i in range (10): # от 0 до 9
 #     print (i)
@@ -11,11 +16,11 @@
 #     print (i)
 
 
-# print("list")
-# numbers=[1,2,3,4,5,6,7]
-# for i in range (len(numbers)):
-#    numbers[i] *=4
-#    print(numbers)
+print("list")
+numbers=[1,2,3,4,5,6,7]
+for i in range (len(numbers)):
+   numbers[i] *=4
+print(numbers)  # [4, 8, 12, 16, 20, 24, 28]
 
 
 # # continue 
@@ -29,14 +34,14 @@
 
     
 # break   - выйти из цикла, закончить свою работу
-numbers=[1,2,3,5,4,5,6,7]
-for val in numbers:
-    if val==5 or val==7: # val=5
-        print(f"Выйти из цикла")
-        break # -> for
-    print("val=", val)
+# numbers=[1,2,3,5,4,5,6,7]
+# for val in numbers:
+#     if val==5 or val==7: # val=5
+#         print(f"Выйти из цикла")
+#         break # -> for
+#     print("val=", val)
 
 
-if 1==1:  
-    pass    # Использ-ся для того чтобы не писать команды
+# if 1==1:  
+#     pass    # Использ-ся для того чтобы не писать команды
 

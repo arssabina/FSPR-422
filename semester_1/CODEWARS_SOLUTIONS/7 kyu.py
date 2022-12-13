@@ -192,22 +192,22 @@
 # get_middle("middle")
 
 # ================================================================================
-# # Mumbling        https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/python
-# def accum(s):
-#     result=[]
-#     for n, letter in enumerate(s):
-#         # 0 R
-#         # 1 q
-#         # 2 a
-#         # 3 E 
-#         # 4 z
-#         # 5 t
-#         # 6 y
-#         print(n, letter)
-#         result.append(letter.upper()+letter.lower()*n)  # ['R', 'Qq', 'Aaa', 'Eeee', 'Zzzzz', 'Tttttt', 'Yyyyyyy']
-#     print("-".join(result))    # R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy    
+# Mumbling        https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/python
+def accum(s):
+    result=[]
+    for n, letter in enumerate(s):
+        # 0 R
+        # 1 q
+        # 2 a
+        # 3 E 
+        # 4 z
+        # 5 t
+        # 6 y
+        print(n, letter)
+        result.append(letter.upper()+letter.lower()*n)  # ['R', 'Qq', 'Aaa', 'Eeee', 'Zzzzz', 'Tttttt', 'Yyyyyyy']
+    print("-".join(result))    # R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy    
 
-# accum("RqaEzty")
+accum("RqaEzty")
 
 # +==============================================================================
 #  https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/python
