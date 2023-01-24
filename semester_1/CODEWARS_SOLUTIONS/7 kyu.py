@@ -227,3 +227,41 @@ accum("RqaEzty")
 # is_isogram("Hello")
                
 # =======================================================================
+
+# https://www.codewars.com/kata/55f8a9c06c018a0d6e000132
+
+# def validate_pin(pin):
+#     if len (pin)==4 or len(pin)==6:
+#         return pin.isdigit()
+#     else: 
+#         return False
+    
+# print(validate_pin("-12234"))
+
+
+# def validate_pin(pin):
+#     return len(pin) in (4, 6) and pin.isdigit()
+
+# print(validate_pin("a2234"))
+
+# https://www.codewars.com/kata/564e7fc20f0b53eb02000106/train/python
+
+def consonant_count(s):
+    vowels=['a','o','e','i','u','A', 'O', 'E','I','U']
+    count=0
+    for letter in s:
+        if letter.isalpha() and letter not in vowels:
+            count+=1
+    return count
+ 
+print(consonant_count("XaeiouX"))
+
+def consonant_count(s):
+    vowels='aoeiu'
+    count=0
+    for letter in s.lower():
+        if letter.isalpha() and letter not in vowels:
+            count+=1
+    return count
+ 
+print(consonant_count("Xa153poeiouX"))

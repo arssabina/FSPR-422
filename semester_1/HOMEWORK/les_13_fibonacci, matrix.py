@@ -14,10 +14,10 @@ fib(10) # кол-во элементов ряда фибоначчи
 #     где ключами словаря являются значения списка, а значения словаря должны быть None. 
 
 def my_list(*args):
-    print("args=", args, type(args))
+    print("args=", args, type(args))  # args= (['name', 'age', 'skill', 'hobby'],) <class 'tuple'>
     for val in args:
         d=dict.fromkeys(val)
-        print("d=", d, type(d))
+        print("d=", d, type(d))  # d= {'name': None, 'age': None, 'skill': None, 'hobby': None} <class 'dict'>
 my_list(["name", "age", "skill", "hobby"])
 
 # =======================================================================================================================
@@ -145,35 +145,35 @@ print("]")
 #         return shades
 
 # РЕШЕНИЕ УЧИТЕЛЯ: 
-def shades_of_grey(n):
-    shades=[]
-    second_hex="0123456789abcdef"
-    first_hex="0123456789abcdef"
-    if n  < 0: 
-        return shades
-    counter=0
-    for _ in range(n//10+1): # n =20
-        if counter ==16:
-            counter=0
-        if (n+1) == len (shades) or len (shades) ==255:
-                break
-        for j in range(16):
-            if (n+1) == len (shades) or len (shades) ==255:
-                break
-            print(j)
-            grey=(f"#{first_hex[counter]}{second_hex[j]}"
-                  f"{first_hex[counter]}{second_hex[j]}"
-                  f"{first_hex[counter]}{second_hex[j]}")
-            shades.append(grey)
-        counter+=1
+# def shades_of_grey(n):
+#     shades=[]
+#     second_hex="0123456789abcdef"
+#     first_hex="0123456789abcdef"
+#     if n  < 0: 
+#         return shades
+#     counter=0
+#     for _ in range(n//10+1): # n =20
+#         if counter ==16:
+#             counter=0
+#         if (n+1) == len (shades) or len (shades) ==255:
+#                 break
+#         for j in range(16):
+#             if (n+1) == len (shades) or len (shades) ==255:
+#                 break
+#             print(j)
+#             grey=(f"#{first_hex[counter]}{second_hex[j]}"
+#                   f"{first_hex[counter]}{second_hex[j]}"
+#                   f"{first_hex[counter]}{second_hex[j]}")
+#             shades.append(grey)
+#         counter+=1
     
-    if shades:  
-        shades.pop(0)
-    if len(shades) >=255:
-        shades.pop(254)
-    return shades
+#     if shades:  
+#         shades.pop(0)
+#     if len(shades) >=255:
+#         shades.pop(254)
+#     return shades
 
-print(-2//10)
-print(shades_of_grey(300))
+# print(-2//10)
+# print(shades_of_grey(300))
           
 

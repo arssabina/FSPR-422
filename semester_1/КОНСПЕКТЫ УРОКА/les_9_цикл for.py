@@ -25,13 +25,3 @@ for val in user.values():
 print("\ndict items")
 for key,val in user.items():
     print("key=", key, "val=", val)
-
-# 
-# [('name', )]
-
-
-
-
-
-
-

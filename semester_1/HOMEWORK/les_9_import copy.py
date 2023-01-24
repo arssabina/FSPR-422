@@ -3,8 +3,7 @@
 # for num in [1,2,3,4,5,6,7]:
 #     print(num*4)
 # ============================================================
-
-     
+  
 import copy
 s_1 = [1, 2, "hello", 4, 5, 6, 7]
 s_2= copy.deepcopy(s_1)
@@ -17,10 +16,6 @@ for i in s_2:
 # if isinstance (s_2,(str,tuple)):
 #     for i in s_2: 
 #         print(i)
-
-
-
-
 
 # x=s_2.index("hello")
 # print(x)
