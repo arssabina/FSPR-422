@@ -177,3 +177,17 @@ for city_name, city_info in cities.items():
     print("\nCity: " + city_name.title())
     for info in city_info.items():
         print(info)
+
+# ======================================
+# Сортировка словаря по значению, вывод от большого к наименьшему
+def sort_dict(d):
+    # items = d.items()
+    sorted_items = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    # key=lambda x: x[1] -->  сортируем по значению                                                                 
+
+    print(sorted_items)  # [(1, 35), (3, 20), (2, 10)]
+
+
+sort_dict({3:20, 2:10, 1:35})   
+
+# Output: # [(1, 35), (3, 20), (2, 10)]
