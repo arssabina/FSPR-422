@@ -1,45 +1,53 @@
-my_file=open('test.txt ','r')
-print(my_file.read())
-print(my_file.readline())
-print(repr(my_file.readline()))
-my_file.close()
+# CSV файлы используют чтобы хранить таблицы в текстовых файлах
+
+# my_file=open('test.txt ','r')
+# print(my_file.read())
+# print(my_file.readline())
+# print(repr(my_file.readline()))
+# my_file.close()
 # =========================================
 
-my_file=open('write.txt','w')
-age=33
-my_file.write(f'My name is Bekzod Age is {age}')
-my_file.write(f'\nMy name is Samina Age is {age}')
-my_file.close()
+# my_file=open('write.txt','w')
+# age=33
+# my_file.write(f'My name is Bekzod Age is {age}')
+# my_file.write(f'\nMy name is Samina Age is {age}')
+# my_file.close()
 # =========================================
 # context manager: _enter_- I __exit__
 
-with open("test.txt", mode = 'r') as file:
-    print(file.read()) 
-    print(file.readline())  #читает одну строку
-    print(file.readlines()) # читает все строки
-    for row in file.readlines():
-       print(row.strip()) # для того чтобы удалить отступы, используем strip
+# with open("test.txt", mode = 'r') as file:
+#     print(file.read()) 
+#     print(file.readline())  #читает одну строку
+#     print(file.readlines()) # читает все строки
+#     for row in file.readlines():
+#        print(row.strip()) # для того чтобы удалить отступы, используем strip
 # =========================================
 # # аналог кода with 
 
 # Также можно написать try/finally, которое гарантирует, 
 # что если после открытия файла операции с ним приводят к исключениям, он закроется автоматически.
 
-try:
-    my_file = open('write.txt', 'a')
-    # code
-except Exception as err: 
-    print(err)
-finally:
-    my_file.close()
+# try:
+#     my_file = open('write.txt', 'a')
+#     # code
+# except Exception as err: 
+#     print(err)
+# finally:
+#     my_file.close()
 
 
 """
+write()- для записи в файлы Python, открытые в режиме записи.
+Если такого файла не существует, тогда будет создан новый.
+
 read() - используется для чтения содержимого файла после открытия его в режиме чтения (r)
 ==================
 
 readline() - используется для построчного чтения содержимого файла. Она используется для крупных файлов.
 С ее помощью можно получать доступ к любой строке в любой момент.
+
+tell() - узнать текущую позицию в файле 
+seek () -изменить текущую позицию
 
 x = open('test.txt','r')
 
@@ -56,19 +64,22 @@ f.close()
 
 """
 
-with open('test.txt', mode = 'w') as file:
-    file.write(f'Some random data!')
-with open ('test.txt', mode = 'a') as file: 
-    for i in range(10):
-        file.write(f'/nSome random data! {i}')
+# with open('test.txt', mode = 'w') as file:
+#     file.write(f'Some random data!')
+# with open ('test.txt', mode = 'a') as file: 
+#     for i in range(10):
+#         file.write(f'/nSome random data! {i}')
 
+
+
+# https://www.programiz.com/python-programming/writing-csv-files
 
 # import csv
 # with open ('addresses.csv', newline ='') as addresses_csv:
 #     address_reader = csv.DictReader(addresses_csv, delimiter=',')
 #     # name: address; telephone
 #     for row in address_reader:
-#         print(row['Address'])
+#         print(row)
 
 
 # import csv
@@ -90,18 +101,38 @@ with open ('test.txt', mode = 'a') as file:
 #         output_writer.writerow(item)
 
 
-big_list = [
-    {'name': 'Sabina Arshidinova', 'user_id': 2457842, 'hobby': 'reading'},
-    {'name': 'Asmira Arshidinova', 'user_id': 4789942, 'hobby': 'dancing'},
-    {'name': 'Samir Arshidinov', 'user_id': 98762342, 'hobby': 'reading'},
-    {'name': 'Sanjar Arshidinov', 'user_id': 111116992, 'hobby': 'reading'},
+# big_list = [
+#     {'name': 'Sabina Arshidinova', 'user_id': 2457842, 'hobby': 'reading'},
+#     {'name': 'Asmira Arshidinova', 'user_id': 4789942, 'hobby': 'dancing'},
+#     {'name': 'Samir Arshidinov', 'user_id': 98762342, 'hobby': 'reading'},
+#     {'name': 'Sanjar Arshidinov', 'user_id': 111116992, 'hobby': 'reading'},
 
-]
+# ]
 
-import csv
-with open ('new_table.csv', 'w', newline='', encoding ='utf-8') as new_table_csv:
-    fields = ['name', 'user_id', 'hobby']
-    new_table_writer = csv.DictWriter(new_table_csv, fieldnames=fields)
-    new_table_writer.writeheader()
-    for item in big_list: 
-        new_table_writer.writerow(item)
+# import csv
+# with open ('new_table.csv', 'w', newline='', encoding ='utf-8') as new_table_csv:
+#     fields = ['name', 'user_id', 'hobby']
+#     new_table_writer = csv.DictWriter(new_table_csv, fieldnames=fields)
+#     new_table_writer.writeheader()
+   
+
+import json
+
+# READING
+with open ('purchase_1.json') as purchase_json: 
+    # convert data into python dict: 
+    purchase_data = json.load(purchase_json)
+
+print(purchase_data, purchase_data["user"]) # Output: 'Ellen_greg' 
+
+# WRITING A JSON FILE:
+turn_to_json = {
+    "eventId": 674189, 
+    "dateTime": "2015-02-12T09:23:17.511Z", 
+    "chocolate": "Semi-sweet-dark", 
+    "IsTomatoAFruit": True    
+}
+
+# IMPORT JSON:
+with open('output.json', 'w') as json_file: 
+    json.dump(turn_to_json, json_file)

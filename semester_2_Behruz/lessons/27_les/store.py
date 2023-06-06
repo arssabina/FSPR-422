@@ -1,3 +1,5 @@
+import csv
+
 USERS = [
     {
         'name': 'Behruz',
@@ -10,7 +12,7 @@ USERS = [
 # PRODUCTS = {
 #     'key': 3,
 #     'wear': 200,
-# }
+# # }
 PRODUCTS = [
     {
         "product_name": "sweater",
@@ -46,37 +48,53 @@ class Store:
 
     @classmethod
     def register(cls, name, email, password, card_code, card_balance):
-        """Регистрация и создание пользования.
+       users_data = []
+       user_keys = ""
 
-        Большое описание на 120 и более символов.
+       with open ("users.csv") as users:
+        users_reader = csv.DictReader(users)
+        user_keys = users_reader.fieldnames
+        for row in users_reader: 
+            users_data.append(
+                {
+                    'id': row ['id'],
+                    'name': row ['name'],
+                    'password': row ['password'],
+                    'email': row ['email'],
+                    'purchases': row ['purchases'],
+                    'card_code': row ['card_code'],
+                    'card_balance': row ['card_balance'],
 
-        Args:
-            name (str): Имя пользователя
-            email (str): dfgh
-            password (str): adsd
-            card_code (str): sdasd
-            card_balance (int): qwerth
 
-        Returns:
-            Store class instance 
-        """
+                }
+            )
         # Есть ли данный пользователь в системе
-        for user in USERS:
+        for user in users_data:
             if user['email'] == email and user['password'] == password:
                 return "Пользователь с такими данными уже есть."
 
         if not (name and email and password and card_code and card_balance):
             return 'Empty values were given.'
-        if name.isalpha() and '@' in email and len(password) >= 6 and len(card_code) == 16 and card_balance >= 0:
-            USERS.append(
-                {
-                    'name': name,
-                    'password': password,
-                    'email': email,
-                    'purchases': [],
-                    'card': {'code': card_code, 'balance': card_balance}
-                }
-            )
+        if (
+            name.isalpha() 
+            and '@' in email 
+            and len(password) >= 6 
+            and len(card_code) == 16 
+            and card_balance >= 0
+        ):
+            with open('users.csv', 'w', newline = '') as users_file: 
+                users_writer = csv.DictWriter(users_file, fieldnames=user_keys)
+                users_writer.writerow(
+                    {
+                        "id": int(users_data[-1]['id']) + 1, 
+                        'name': name,
+                        'passwrod': password,
+                        'email': email,
+                        'purchase': [],
+                        'card_code': card_code,
+                        'card_balance': card_balance,
+                    }
+                )
             return cls(name, email, password, card_code, card_balance)
         else:
             return 'Wrong credentials!'
@@ -98,3 +116,5 @@ class Store:
                 return f'\nSuccesfully bought {product} and added into purchases!\nBalance: {self.card_balance}\nYour purchases: {self.purchases}'
 
         return f'{self.name} | {self.card_balance}: Not enough money.'
+    
+user_1 = Store.register("Sabina", "sabina@mail.ru", "sabina1212", "1234567891234567", 1200) 
