@@ -1,4 +1,6 @@
 import csv
+import json
+
 
 # создать список compromised_users
 # 1. Вывести на экран имена всех пользователей из файла passwords.csv и записать их в список compromised_users  
@@ -18,7 +20,7 @@ import csv
 
 
 # ДОБАВЛЕНИЕ НОВЫХ СТРОК В СУЩ.ФАЙЛ 
-import csv
+
 # new_passwords_list = [
 #     {'name': 'Helen', 'password': 54698941},
 #     {'name': 'Ann', 'password': 6998844}, 
@@ -51,7 +53,6 @@ import csv
 
 
 # ==============================
-import json
 
 # 3. Записать в файл boss_message.json словарь в json формате
 # boss_message_dict = {
@@ -87,3 +88,4 @@ import json
 # \_)__)\____/\____/\____/'''])
 
 # 2 - Переписать использование констант Users и Products в классе из 27 урока первого семестра используя файлы
+

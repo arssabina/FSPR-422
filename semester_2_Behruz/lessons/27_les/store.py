@@ -6,7 +6,8 @@ USERS = [
         'password': '234fjfdsd',
         'email': 'behruz@gmail.com',
         'purchases': [],
-        'card': {'code': '3647583465734283', 'balance': 1000}
+        'card_code': '3647583465734283', 
+        'card_balance': 1000
     }
 ]
 # PRODUCTS = {
@@ -49,11 +50,11 @@ class Store:
     @classmethod
     def register(cls, name, email, password, card_code, card_balance):
        users_data = []
-       user_keys = ""
+       users_keys = ""
 
        with open ("users.csv") as users:
-        users_reader = csv.DictReader(users)
-        user_keys = users_reader.fieldnames
+        users_reader = csv.DictReader(users, delimiter = ";")
+        users_keys = users_reader.fieldnames
         for row in users_reader: 
             users_data.append(
                 {
@@ -82,11 +83,10 @@ class Store:
             and len(card_code) == 16 
             and card_balance >= 0
         ):
-            with open('users.csv', 'w', newline = '') as users_file: 
-                users_writer = csv.DictWriter(users_file, fieldnames=user_keys)
-                users_writer.writerow(
-                    {
-                        "id": int(users_data[-1]['id']) + 1, 
+            with open('users.csv', 'a', newline = '') as users_file: 
+                users_writer = csv.DictWriter(users_file, fieldnames=users_keys, delimiter=";")
+                users_writer.writerow({                    
+                        "id": int(users_data[-1]["id"]) + 1, 
                         'name': name,
                         'passwrod': password,
                         'email': email,
@@ -117,4 +117,4 @@ class Store:
 
         return f'{self.name} | {self.card_balance}: Not enough money.'
     
-user_1 = Store.register("Sabina", "sabina@mail.ru", "sabina1212", "1234567891234567", 1200) 
+user_1 = Store.register("Sabina", "sabina@mail.ru", "sabina1212", "123456789123456", 1200)

@@ -75,14 +75,14 @@
 # x.__doc__
 
 
-try:
-    x = 10
-    y = 0
-    answer = x/y
-except:
-    print("Error happened!")
+# try:
+#     x = 10
+#     y = 0
+#     answer = x/y
+# except:
+#     print("Error happened!")
 
-print("Works")
+# print("Works")
 
 
 
@@ -96,14 +96,14 @@ except ZeroDivisionError:
 print("Works")
 
 
-try:
-    x = 10
-    y = 20
-    answer = x/y
-    raise ZeroDivisionError   
-except ZeroDivisionError:
-    print("Error happened!")
+# try:
+#     x = 10
+#     y = 20
+#     answer = x/y
+#     raise ZeroDivisionError   
+# except ZeroDivisionError:
+#     print("Error happened!")
 
-print("Works")
+# print("Works")
    
 
