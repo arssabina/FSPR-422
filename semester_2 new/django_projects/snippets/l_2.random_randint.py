@@ -48,10 +48,6 @@ if counter > 6:
     money_number = counter-6
     print("\nYour number of attempts is more than 6, you lose. Your dubt is " +  "-" + str(money_number*100) + " $")
    
-import csv
-with open('semester 2 ')
-
-
 
 # ---------------------------------------  2-задание ---------------------------------------------
 text_1 = """

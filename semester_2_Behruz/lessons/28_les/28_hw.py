@@ -93,4 +93,41 @@ for key in titles:
 #     result = re.search('react', key, re.IGNORECASE)
 #     res = re.search('(?i)react', key)
 #     print(res)
-       
+
+import re
+
+title = 'Middle Javascript react'
+
+js = {
+    "Javascript": [
+        "javascript",
+        "angular", 
+        "angularjs",
+        "react",
+        "node js",
+        "node.js",
+        "nodejs"
+    ]
+}
+# (javascript)|(angular)|(angularjs)|(react)|(node_js)|(node.js)|(nodejs)|(nodejs)
+mapper_string = "|".join([reg_ex for reg_ex in js["javascript"]])
+result = re.finditer(mapper_string, title, re.IGNORECASE)
+print(next(result))
+print(next(result))
+
+
+regex = r"react|javascript|angular"
+test_str = "middle javasctipt react"
+matches = re.findall(regex, test_str, re.MULTILINE)
+
+# print(matches)
+# for match in matches: 
+#     print("match", match.group())
+
+# print(len(matches))
+
+pattern = r"(^[\sA - Z\d$#@%]{6,}\d$)"
+password = "jsfuy4"
+
+result = re.fullmatch(pattern, password.lower())
+print(result)
